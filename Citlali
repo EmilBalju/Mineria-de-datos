@@ -1,0 +1,22 @@
+Base <- ClientesSeguros
+View(Base)
+library(ggplot2)
+####Medidas estadisticas
+summary(Base)
+
+#Grafica de barras
+ggplot(Base)+geom_bar(aes(x=marital.stat),fill=c('darkmagenta','darkorchid4','darkorchid4','darkmagenta'))+ 
+  xlab("Estado Civil")+ylab("Frecuencia")+ggtitle('Grafica de barras')+theme_minimal()
+#Grafica de barras lugar de residencia
+ggplot(Base)+geom_bar(aes(x=state.of.res),fill='deeppink4')+coord_flip()+xlab("Ciudades")+ylab("Frecuencia")+
+  ggtitle('Grafica de barras') + theme_minimal()
+#Por si necesita hacer mas chico la letra +theme(axis.test=element_text(size=rel(0.5)))
+windows()
+#No se ve bien
+ggplot(Base)+geom_bar(aes(x=age),fill='deeppink4')+xlab("Edades")+ylab("Frecuencia")+
+  ggtitle("Grafica de barras")+theme_minimal()
+#Grafico de densidad
+ggplot(Base)+geom_density(aes(x=age),fill='deeppink4')+xlab("Edades")+ylab("Frecuencia")+
+  ggtitle("Grafica de barras")+theme_minimal()
+#boxplot
+boxplot(Base$age)
